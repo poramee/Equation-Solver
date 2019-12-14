@@ -132,7 +132,7 @@ try
     if inputSize(2) == 0
         error("No Values")
     end
-    [eqn,LHS,RHS,vars] = inputProcessor(userInput);
+    [eqn,LHS,RHS,vars] = inputProcessor(userInput)
     % check for incomplete equations
     LHSSize = size(LHS);
     varsSize = size(vars);
@@ -149,7 +149,11 @@ try
     eqn = split(eqn,', ');
     eqnSize = size(eqn);
     for i = 1:eqnSize(1,1)
-        eqnText = eqnText + convertCharsToStrings(eqn(i,:)) + newline;
+        eqnText = eqnText + convertCharsToStrings(eqn(i,:));
+        if contains(eqn(i,:),"==") == 0
+            eqnText = eqnText + " == 0"
+        end
+        eqnText = eqnText + newline;
     end
     set(handles.listbox3,'String',eqnText);
     set(handles.text22,'Visible','On');
