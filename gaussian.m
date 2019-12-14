@@ -58,10 +58,6 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 
-
-path = matlab.desktop.editor.getActiveFilename;
-path = path(1:end-11)
-cd(path)
 % UIWAIT makes gaussian wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
