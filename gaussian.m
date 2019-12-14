@@ -22,7 +22,7 @@ function varargout = gaussian(varargin)
 
 % Edit the above text to modify the response to help gaussian
 
-% Last Modified by GUIDE v2.5 14-Dec-2019 10:45:34
+% Last Modified by GUIDE v2.5 14-Dec-2019 11:31:53
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -246,10 +246,12 @@ function randompb_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 str = get(handles.edit4,'String');
+minval = get(handles.minvaluebox,'String');
+maxval = get(handles.maxvaluebox,'String');
 if isempty(str2num(str))
     set(src,'string','0');
 end
-set(handles.inputText,'String',randomEqns(str2num(str)));
+set(handles.inputText,'String',randomEqns(str2num(str),str2num(minval),str2num(maxval)));
 
 
 
@@ -338,6 +340,52 @@ function listbox5_CreateFcn(hObject, eventdata, handles)
 % handles    empty - handles not created until after all CreateFcns called
 
 % Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function minvaluebox_Callback(hObject, eventdata, handles)
+% hObject    handle to minvaluebox (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of minvaluebox as text
+%        str2double(get(hObject,'String')) returns contents of minvaluebox as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function minvaluebox_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to minvaluebox (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function maxvaluebox_Callback(hObject, eventdata, handles)
+% hObject    handle to maxvaluebox (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of maxvaluebox as text
+%        str2double(get(hObject,'String')) returns contents of maxvaluebox as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function maxvaluebox_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to maxvaluebox (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
 %       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
