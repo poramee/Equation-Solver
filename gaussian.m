@@ -161,7 +161,6 @@ try
     tic;
     [tA,tb] = GaussPivot(LHS,RHS);
     [tA,tb] = BackwardSub(tA,tb);
-    toc;
     timeSparks = toc;
     ansText = eqnmat2str(tb,vars);
     set(handles.listbox4,'String',ansText);
@@ -169,7 +168,6 @@ try
     
     tic
     tb = GaussPivotLoops(LHS,RHS);
-    toc
     timeLoops = toc;
     
     ansText = eqnmat2str(tb,vars);
