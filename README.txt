@@ -1,1 +1,1 @@
-การใช้งานโปรแกรม Equation Solver
+การใช้งานโปรแกรม Equation Solver ให้เปิดไฟล์ "EquationSolver.m" ในโปรแกรม MATLAB และในส่วนของ Editor ให้ทำการ Run
