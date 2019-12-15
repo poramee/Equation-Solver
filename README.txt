@@ -1,1 +1,1 @@
-# Equation-Solver
+การใช้งานโปรแกรม Equation Solver
