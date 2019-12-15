@@ -1,15 +1,17 @@
-function [out] = randomEqns(n)
-    text = ""
+function [out] = randomEqns(n,mm,mx)
+    text = "";
     for i = 1:n
         for j = 1:n
-            if randi(2) == 1
+            randNum = randi((mx-mm) + 1) + mm - 1;
+            if randNum > 0
                 text = text + "+";
             else
                 text = text + "-";
             end
-            text = text + num2str(randi(1000)) + "*x" + num2str(j);
+            text = text + num2str(randNum) + "*x" + num2str(j);
         end
-        text = text + " = " + num2str(randi(1000));
+        randNum = randi((mx-mm) + 1) + mm - 1;
+        text = text + " = " + num2str(randNum);
         if i < n
             text = text + ",";
         end

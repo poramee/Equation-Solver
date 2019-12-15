@@ -15,6 +15,6 @@ function [b_out] = GaussPivotLoops(A,b)
             b(i,1) = b(i,1) - (A(i,j)*b(j,1));
         end
     end
-    [A,b] = BackwardSub(A,b);
+    [A,b] = BackwardSubLoops(A,b);
     b_out = b;
 end
